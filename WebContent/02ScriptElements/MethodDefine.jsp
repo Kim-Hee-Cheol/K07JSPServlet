@@ -4,7 +4,7 @@
 <%!
 //선언부 선언
 
-//start에서 end사이의 bausu합을 구하는 메소드
+//start에서 end사이의 baesu합을 구하는 메소드
 public int getBaesu(int start, int end, int c){
 	
 	int sum = 0;

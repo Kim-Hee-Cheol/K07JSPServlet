@@ -26,7 +26,9 @@ dto.setId(session.getAttribute("USER_ID").toString());
 BbsDAO dao = new BbsDAO(application);
 
 //사용자의 입력값을 DTO객체에 저장 후 파라미터로 전달
+
 int affected = dao.insertWrite(dto);
+
 if(affected==1){
 	//클쓰기에 성공했을 때
 	response.sendRedirect("BoardList.jsp");

@@ -5,9 +5,9 @@
 	1. 클래스와 메소드를 정의한다. 단 메소드 정의시 반드시 public static
 	으로 선언해야 한다.
 	2. TLD파일을 생성한다. Tag Library Descriptor의 약자로
-		web-inf폴더 하위 아무곳이나 생성하면 컨테이너가 알아서 찾아 사용하게된다.
-		우리는 tlds폴더를 생성한 후 해당 파일을 작성한다.
-		파일 작성시 fn.tld를 참조한다.
+	   web-inf폴더 하위 아무곳이나 생성하면 컨테이너가 알아서 찾아 사용하게된다.
+	      우리는 tlds폴더를 생성한 후 해당 파일을 작성한다.
+	      파일 작성시 fn.tld를 참조한다.
  -->
 <taglib xmlns="http://java.sun.com/xml/ns/j2ee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -36,7 +36,13 @@
 	<function>
 	    <name>getGender</name>
 	    <function-class>eltag.MyTagLib</function-class>
-	    <function-signature>String getGender(java.lang.String)</function-signature>
+	    <function-signature>java.lang.String getGender(java.lang.String)</function-signature>
+	</function>
+	
+	<function>
+	    <name>memberLogin</name>
+	    <function-class>eltag.MyTagLib</function-class>
+	    <function-signature>boolean memberLogin(java.lang.String, java.lang.String, java.lang.String, java.lang.String)</function-signature>
 	</function>
 </taglib>
 

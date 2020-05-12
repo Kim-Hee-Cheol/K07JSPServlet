@@ -22,7 +22,7 @@ BbsDAO dao = new BbsDAO(drv, url);
 */
 Map<String,Object> param = new HashMap<String,Object>();
 
-//검색어 이볅시 전송된 폼값을 받아 Map에 저장
+//검색어 입력시 전송된 폼값을 받아 Map에 저장
 String searchColumn = request.getParameter("searchColumn");
 String searchWord = request.getParameter("searchWord");
 if(searchWord!=null){

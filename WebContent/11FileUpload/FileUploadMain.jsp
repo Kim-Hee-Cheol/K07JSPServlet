@@ -41,10 +41,7 @@
 			frm.chumFile1.focus();
 			return false;
 		}
-		if(frm.inter.value==""){
-			alert("관심사항 1개이상 선택해주세요");
-			return false;
-		}
+		
 	}
 	
 </script>
@@ -104,6 +101,29 @@
 		<input type="submit" value="파일업로드GoGo" />
 	</form>
 	
+	
+	
+	<h3>파일업로드3- DB처리 후 다운로드</h3>
+	<form action="UploadProc3.jsp" method="post" name="fileFrm3"
+		onsubmit="return isValidate(this);" enctype="multipart/form-data">
+		
+		작성자 : <input type="text" name="name" value="정우성" />
+		<br />
+		제목 : <input type="text" name="title" value="" />
+		<br />
+		관심사항 : 
+			<input type="checkbox" name="inter" 
+				value="정치" checked="checked" />정치
+			<input type="checkbox" name="inter" 
+				value="경제" checked="checked" />경제
+			<input type="checkbox" name="inter" 
+				value="문화" />문화
+		<br />
+		첨부파일1 :
+			<input type="file" name='chumFile1' />
+		<br />
+		<input type="submit" value="파일업로드GoGo" />
+	</form>
 	
 </body>
 </html>

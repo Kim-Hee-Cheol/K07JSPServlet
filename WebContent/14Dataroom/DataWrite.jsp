@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 글작성 페이지 진입전 로그인 체크하기 --%>
-<%@ include file="../common/isLogin.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="../common/boardHead.jsp" />
@@ -11,13 +11,23 @@
 	<div class="row">		
 		<jsp:include page="../common/boardLeft.jsp" />
 		<div class="col-9 pt-3">
-			<h3>게시판 - <small>Write(작성)</small></h3>
+			<h3>자료실 - <small>Write(작성)</small></h3>
 <script>
 function checkValidate(frm) {
+	if(frm.name.value==""){
+		alert("이름을 입력해주세요");
+		frm.name.focus();
+		return false;
+	}
+	if(frm.pass.value==""){
+		alert("비밀번호를 입력해주세요");
+		frm.pass.focus();
+		return false;
+	}
 	if(frm.title.value==""){
-		alert("제목을 입력해주세요");//경고창 띄움
-		frm.title.focus();//입력란으로 포커스 이동
-		return false;//전송되지 않도록 이벤트리스너로 false반환
+		alert("제목을 입력해주세요");
+		frm.title.focus();
+		return false;
 	}
 	if(frm.content.value==""){
 		alert("내용을 입력해주세요");
@@ -32,27 +42,34 @@ var checkValidate2 = function(frm){
 </script>						
 			<div class="row mt-3 mr-1">
 				<table class="table table-bordered table-striped">
-				<form name="writeFrm" method="post" action="WriteProc.jsp"
+				
+				<!-- 
+					파일 업로드를 하기 위해서는 반드시 enctype을 선언해야한다.
+					그렇지않으면 파일은 서버로 전송되지 않는다.
+				 -->
+				<form name="writeFrm" method="post" action="../DataRoom/DataWrite"
+					enctype="multipart/form-data"
 					onsubmit="return checkValidate(this);">
 				<colgroup>
 					<col width="20%"/>
 					<col width="*"/>
 				</colgroup>
 				<tbody>
-					<!-- <tr>
+					<tr>
 						<th class="text-center align-middle">작성자</th>
 						<td>
-							<input type="text" class="form-control"	style="width:100px;"/>
+							<input type="text" class="form-control"	style="width:100px;"
+								name="name"/>
 						</td>
-					</tr> -->
-					<!-- <tr>
+					</tr>
+					<tr>
 						<th class="text-center" 
 							style="vertical-align:middle;">패스워드</th>
 						<td>
 							<input type="password" class="form-control"
-								style="width:200px;"/>
+								style="width:200px;" name="pass"/>
 						</td>
-					</tr> -->
+					</tr>
 					<tr>
 						<th class="text-center"
 							style="vertical-align:middle;">제목</th>
@@ -68,13 +85,13 @@ var checkValidate2 = function(frm){
 								class="form-control" name="content"></textarea>
 						</td>
 					</tr>
-					<!-- <tr>
+					<tr>
 						<th class="text-center"
 							style="vertical-align:middle;">첨부파일</th>
 						<td>
-							<input type="file" class="form-control" />
+							<input type="file" class="form-control" name="attachedfile"/>
 						</td>
-					</tr> -->
+					</tr>
 				</tbody>
 				</table>
 			</div>

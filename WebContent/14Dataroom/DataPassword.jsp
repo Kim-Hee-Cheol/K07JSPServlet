@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 글작성 페이지 진입전 로그인 체크하기 --%>
-<%@ include file="../common/isLogin.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="../common/boardHead.jsp" />
@@ -11,19 +11,16 @@
 	<div class="row">		
 		<jsp:include page="../common/boardLeft.jsp" />
 		<div class="col-9 pt-3">
-			<h3>게시판 - <small>Write(작성)</small></h3>
+			<h3>자료실 - <small>Password(패스워드검증)</small></h3>
 <script>
+//유기명함수
 function checkValidate(frm) {
-	if(frm.title.value==""){
-		alert("제목을 입력해주세요");//경고창 띄움
-		frm.title.focus();//입력란으로 포커스 이동
-		return false;//전송되지 않도록 이벤트리스너로 false반환
-	}
-	if(frm.content.value==""){
-		alert("내용을 입력해주세요");
-		frm.content.focus();
+	if(frm.pass.value==""){
+		alert("비밀번호를 입력해주세요");
+		frm.pass.focus();
 		return false;
 	}
+	return true;
 }
 //무기명함수
 var checkValidate2 = function(frm){
@@ -32,49 +29,32 @@ var checkValidate2 = function(frm){
 </script>						
 			<div class="row mt-3 mr-1">
 				<table class="table table-bordered table-striped">
-				<form name="writeFrm" method="post" action="WriteProc.jsp"
+				
+				<!-- 
+					패스워드 검증폼은 첨부파일을 전송하지 않으므로 enctype선언부분을
+					삭제해야한다.
+				 -->
+				<form name="writeFrm" method="post" action="../DataRoom/DataPassword"
 					onsubmit="return checkValidate(this);">
+				<!-- 패스워드 검증을 위해 idx, mode는 서버로 전송해야 하므로
+					hidden폼에 값을 저장한다. -->	
+				<input type="hid den" name="idx" value="${param.idx }"/>
+				<input type="hid den" name="mode" value="${mode }"/>
+				<input type="hid den" name="nowPage" value=""/>
+
 				<colgroup>
 					<col width="20%"/>
 					<col width="*"/>
 				</colgroup>
-				<tbody>
-					<!-- <tr>
-						<th class="text-center align-middle">작성자</th>
-						<td>
-							<input type="text" class="form-control"	style="width:100px;"/>
-						</td>
-					</tr> -->
-					<!-- <tr>
+				<tbody>			
+					<tr>
 						<th class="text-center" 
 							style="vertical-align:middle;">패스워드</th>
 						<td>
 							<input type="password" class="form-control"
-								style="width:200px;"/>
-						</td>
-					</tr> -->
-					<tr>
-						<th class="text-center"
-							style="vertical-align:middle;">제목</th>
-						<td>
-							<input type="text" class="form-control" name="title" />
+								style="width:200px;" name="pass"/>
 						</td>
 					</tr>
-					<tr>
-						<th class="text-center" 
-							style="vertical-align:middle;">내용</th>
-						<td>
-							<textarea rows="10" 
-								class="form-control" name="content"></textarea>
-						</td>
-					</tr>
-					<!-- <tr>
-						<th class="text-center"
-							style="vertical-align:middle;">첨부파일</th>
-						<td>
-							<input type="file" class="form-control" />
-						</td>
-					</tr> -->
 				</tbody>
 				</table>
 			</div>

@@ -60,7 +60,6 @@
 				choose
 					when -> lists컬렉션에 아무값도 없을 때
 					otherwise -> ResultSet 결과가 있을 때(즉 출력할 레코드가 있을 때)
-					
 		 -->
 		<c:choose>
 			<c:when test="${empty lists }">	
@@ -108,7 +107,7 @@
 					<!-- 각종 버튼 부분 -->
 					<!-- <button type="button" class="btn">Basic</button> -->
 					<button type="button" class="btn btn-primary"
-						onclick="location.href='../Dataroom/DataWrite';">글쓰기</button>
+						onclick="location.href='../DataRoom/DataWrite';">글쓰기</button>
 						
 						
 					<!-- <button type="button" class="btn btn-secondary">수정하기</button>

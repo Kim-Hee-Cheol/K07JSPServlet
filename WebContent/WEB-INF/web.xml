@@ -66,9 +66,9 @@
   		<servlet-class>servlet.NoJSPServlet</servlet-class>
   	</servlet>
   	<servlet-mapping>
-  	<!-- 해당 요쳥이 들어왔을 때 호출할 서블릿의 이름을 지정 -->   
+  	<!-- 해당 요청이 들어왔을 때 호출할 서블릿의 이름을 지정 -->   
   		<servlet-name>NoJSPServlet</servlet-name>
-  		<!-- 요쳥명을 기술함 -->
+  		<!-- 요청명을 기술함 -->
   		<url-pattern>/13Servlet/NoJSPServlet.do</url-pattern>
   	</servlet-mapping>
 	
@@ -121,7 +121,7 @@
 	 -->
 	 
 	 <!-- 서블릿으로 게시판 만들기 -->
-	 
+	 <!-- 자료실 리스트 -->
 	 <servlet>
 		<servlet-name>DataRoomList</servlet-name>
 		<servlet-class>controller.ListCtrl</servlet-class>
@@ -130,9 +130,49 @@
 		<servlet-name>DataRoomList</servlet-name>
 		<url-pattern>/DataRoom/DataList</url-pattern>
 	</servlet-mapping>
-	 
-	 
-	 
+	
+	<!-- 자료실 글쓰기 -->
+	<servlet>
+		<servlet-name>DataRoomWrite</servlet-name>
+		<servlet-class>controller.WriteCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataRoomWrite</servlet-name>
+		<url-pattern>/DataRoom/DataWrite</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 자료실 게시글보기(상세보기) -->
+	<servlet>
+		<servlet-name>DataRoomView</servlet-name>
+		<servlet-class>controller.ViewCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataRoomView</servlet-name>
+		<url-pattern>/DataRoom/DataView</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 수정/삭제 진입하기전에 패스워드 검증폼 -->
+	<servlet>
+		<servlet-name>DataRoomPassword</servlet-name>
+		<servlet-class>controller.PasswordCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataRoomPassword</servlet-name>
+		<url-pattern>/DataRoom/DataPassword</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!--  -->
+	<servlet>
+		<servlet-name>DataRoomDelete</servlet-name>
+		<servlet-class>controller.DeleteCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataRoomDelete</servlet-name>
+		<url-pattern>/DataRoom/DataDelete</url-pattern>
+	</servlet-mapping>
+	
+	
 	 
   <!-- 
 	  해당 웹어플리케이션을 실행했을 때 파일명을 명시하지 않으면

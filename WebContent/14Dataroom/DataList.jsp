@@ -22,7 +22,7 @@
 						</select>
 					</div>
 					<div class="input-group">
-						<input type="text" name="searchWord"  class="form-control"/>
+						<input type="text" name="searchWord" class="form-control"/>
 						<div class="input-group-btn">
 							<button type="submit" class="btn btn-warning">
 								<i class='fa fa-search' style='font-size:20px'></i>

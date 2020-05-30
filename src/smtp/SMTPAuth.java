@@ -16,7 +16,7 @@ public class SMTPAuth extends Authenticator{
 	
 	
 	protected PasswordAuthentication getPasswordAuthentication() {
-		return new PasswordAuthentication("qaz3ws","dongju1425@");
+		return new PasswordAuthentication("아이디","비밀번호");
 	}
 	
 	public boolean emailSending(Map<String, String> map) {
